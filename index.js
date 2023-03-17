@@ -8,6 +8,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
+// Create schema for new users
+const userSchema = new Schema({
+  username: [string]
+})
+
+// Create model for userSchema
+const User = mongoose.model("User", userSchema);
 
 app.use(cors())
 app.use(express.static('public'))
