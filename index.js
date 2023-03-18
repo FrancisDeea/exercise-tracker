@@ -55,6 +55,19 @@ app.post('/api/users', (req, res) => {
     .catch(error => {
       console.log(error)
     })
+});
+
+app.get('/api/users', (req, res) => {
+  // Search all users in database
+  User.find({})
+    // if the search was possible, return json response
+    .then(result => {
+      res.json(result)
+    })
+    // show error if search was not possible
+    .catch(error => {
+      console.log(error)
+    })
 })
 
 
